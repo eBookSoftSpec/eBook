@@ -2,11 +2,36 @@ package com.example.kwankaew.ebook
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
+import android.widget.ArrayAdapter
+import android.widget.ListView
+import com.example.kwankaew.ebook.Model.Book
+import com.example.kwankaew.ebook.Model.BookRepositoty
+import com.example.kwankaew.ebook.Model.MockBookReposity
+import com.example.kwankaew.ebook.presenter.BookPresenter
+import com.example.kwankaew.ebook.presenter.BookView
+import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() , BookView{
+
+    lateinit var present: BookPresenter
+    lateinit var repositoty: BookRepositoty
+    var adapter: ArrayAdapter<Book>? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        repositoty = MockBookReposity()
+        present = BookPresenter(this,repositoty)
+        present.start()
+    }
+
+
+    override fun setBookList(books: ArrayList<Book>) {
+        println(books)
+        adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, books)
+        listView.adapter = adapter
     }
 }

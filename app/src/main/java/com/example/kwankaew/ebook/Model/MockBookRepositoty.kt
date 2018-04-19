@@ -10,13 +10,11 @@ class MockBookReposity :BookRepositoty(){
     val bookList = ArrayList<Book>()
     override fun loadAllBooks() {
         bookList.clear()
-        bookList.add(Book(1,"AAA",120.0))
-        bookList.add(Book(2,"BBB",150.0))
-        bookList.add(Book(3,"CCC",200.0))
+        bookList.add(Book(1,"How to win BNK election",500.0))
+        bookList.add(Book(2,"How to write Android App",199.0))
+        bookList.add(Book(5,"Sleep today",39.99))
         setChanged()
         notifyObservers()
-
-
     }
 
     override fun getBooks(): ArrayList<Book> {
