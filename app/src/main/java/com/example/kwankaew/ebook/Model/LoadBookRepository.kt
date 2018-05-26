@@ -12,6 +12,8 @@ class LoadBookRepository:BookRepository() {
 
     override fun loadAllBooks(){
         booklist.clear()
+        val book = BookLoaderTask()
+        book.execute()
     }
 
     override fun getBooks(): ArrayList<Book> {
@@ -30,12 +32,11 @@ class LoadBookRepository:BookRepository() {
             if(result != null) {
                 val klaxon = Klaxon()
                 JsonReader(StringReader(result)).use { reader ->
-                    reader.beginArray({
-                        ->
+                    reader.beginArray{
                         while (reader.hasNext()) {
                             klaxon.parse<Book>(reader)?.let { booklist.add(it) }
                         }
-                    })
+                    }
                 }
             }
         }

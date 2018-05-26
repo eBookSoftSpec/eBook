@@ -1,11 +1,10 @@
 package com.example.kwankaew.ebook.Model
 
 import android.os.AsyncTask
-import android.util.JsonReader
+import com.beust.klaxon.JsonReader
 import com.beust.klaxon.Klaxon
 import java.io.StringReader
 import java.net.URL
-
 /**
  * Created by kwankaew on 30/3/2018 AD.
  */
