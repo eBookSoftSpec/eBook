@@ -1,7 +1,7 @@
 package com.example.kwankaew.ebook.Model
 
 import android.os.AsyncTask
-import android.util.JsonReader
+import com.beust.klaxon.JsonReader
 import com.beust.klaxon.Klaxon
 import java.io.StringReader
 import java.net.URL
@@ -30,11 +30,12 @@ class LoadBookRepository:BookRepository() {
             if(result != null) {
                 val klaxon = Klaxon()
                 JsonReader(StringReader(result)).use { reader ->
-                    reader.beginArray {
+                    reader.beginArray({
+                        ->
                         while (reader.hasNext()) {
                             klaxon.parse<Book>(reader)?.let { booklist.add(it) }
                         }
-                    }
+                    })
                 }
             }
         }
