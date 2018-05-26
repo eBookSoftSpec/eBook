@@ -1,12 +1,9 @@
 package com.example.kwankaew.ebook.Model
 
-import android.os.AsyncTask
-import java.net.URL
-
 /**
  * Created by kwankaew on 30/3/2018 AD.
  */
-class MockBookReposity :BookRepositoty(){
+class MockBookRepositoryy :BookRepository(){
     val bookList = ArrayList<Book>()
     override fun loadAllBooks() {
         bookList.clear()
