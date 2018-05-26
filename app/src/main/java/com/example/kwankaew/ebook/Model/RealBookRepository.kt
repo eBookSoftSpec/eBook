@@ -5,11 +5,12 @@ import com.beust.klaxon.JsonReader
 import com.beust.klaxon.Klaxon
 import java.io.StringReader
 import java.net.URL
+import com.example.kwankaew.ebook.Model.*
 /**
  * Created by kwankaew on 30/3/2018 AD.
  */
 class RealBookRepository:BookRepository() {
-    val bookList = ArrayList<Book>()
+
     override fun loadAllBooks() {
         bookList.clear()
         val task = BookLoaderTask()
@@ -40,10 +41,10 @@ class RealBookRepository:BookRepository() {
                     }
                 }
             }
-
             setChanged()
             notifyObservers()
         }
 
     }
+
 }

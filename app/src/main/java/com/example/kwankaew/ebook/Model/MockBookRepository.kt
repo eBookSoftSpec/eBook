@@ -4,7 +4,7 @@ package com.example.kwankaew.ebook.Model
  * Created by kwankaew on 30/3/2018 AD.
  */
 class MockBookRepository :BookRepository(){
-    val bookList = ArrayList<Book>()
+
     override fun loadAllBooks() {
         bookList.clear()
         bookList.add(Book(1,"How to win BNK election",500.0))
