@@ -6,45 +6,39 @@ import com.beust.klaxon.Klaxon
 import java.io.StringReader
 import java.net.URL
 
-/**
- * Created by kwankaew on 30/3/2018 AD.
- */
-class RealBookRepositoty:BookRepository() {
-    val bookList = ArrayList<Book>()
-    override fun loadAllBooks() {
-        bookList.clear()
-        val task = BookLoaderTask()
-        task.execute()
+class LoadBookRepository:BookRepository() {
+
+    val booklist = ArrayList<Book>()
+
+    override fun loadAllBooks(){
+        booklist.clear()
     }
 
     override fun getBooks(): ArrayList<Book> {
-        return bookList
+        return booklist
     }
-
 
     inner class BookLoaderTask: AsyncTask<String,Unit,String>(){
         override fun doInBackground(vararg p0: String?): String {
             val url = URL("https://theory.cpe.ku.ac.th/~jittat/courses/sw-spec/ebooks/books.json")
-            val json = url.readText()
-            return  json
+            val json = url.readText();
+            return json
         }
 
         override fun onPostExecute(result: String?) {
             super.onPostExecute(result)
-            if(result != null){
-                val kalxon = Klaxon()
+            if(result != null) {
+                val klaxon = Klaxon()
                 JsonReader(StringReader(result)).use { reader ->
                     reader.beginArray {
                         while (reader.hasNext()) {
-                            kalxon.parse<Book>(reader)?.let { bookList.add(it) }
+                            klaxon.parse<Book>(reader)?.let { booklist.add(it) }
                         }
                     }
                 }
             }
-
-            setChanged()
-            notifyObservers()
         }
 
     }
 }
+

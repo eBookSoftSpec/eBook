@@ -2,11 +2,9 @@ package com.example.kwankaew.ebook
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.widget.ArrayAdapter
-import android.widget.ListView
 import com.example.kwankaew.ebook.Model.Book
-import com.example.kwankaew.ebook.Model.BookRepositoty
+import com.example.kwankaew.ebook.Model.BookRepository
 import com.example.kwankaew.ebook.Model.MockBookReposity
 import com.example.kwankaew.ebook.presenter.BookPresenter
 import com.example.kwankaew.ebook.presenter.BookView
@@ -15,7 +13,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() , BookView{
 
     lateinit var present: BookPresenter
-    lateinit var repositoty: BookRepositoty
+    lateinit var repositoty: BookRepository
     var adapter: ArrayAdapter<Book>? = null
 
 
@@ -23,7 +21,7 @@ class MainActivity : AppCompatActivity() , BookView{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        repositoty = MockBookReposity()
+        repositoty = MockBookRepository()
         present = BookPresenter(this,repositoty)
         present.start()
     }
