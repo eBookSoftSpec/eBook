@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import com.example.kwankaew.ebook.Model.Book
 import com.example.kwankaew.ebook.Model.BookRepository
-import com.example.kwankaew.ebook.Model.MockBookReposity
+import com.example.kwankaew.ebook.Model.MockBookRepository
 import com.example.kwankaew.ebook.presenter.BookPresenter
 import com.example.kwankaew.ebook.presenter.BookView
 import kotlinx.android.synthetic.main.activity_main.*

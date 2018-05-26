@@ -3,7 +3,7 @@ package com.example.kwankaew.ebook.Model
 /**
  * Created by kwankaew on 30/3/2018 AD.
  */
-class MockBookRepositoryy :BookRepository(){
+class MockBookRepository :BookRepository(){
     val bookList = ArrayList<Book>()
     override fun loadAllBooks() {
         bookList.clear()
