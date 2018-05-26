@@ -42,7 +42,4 @@ class LoadBookRepository:BookRepository() {
     }
 }
 
-private fun JsonReader.beginArray(function: () -> Unit) {
-
-}
 
