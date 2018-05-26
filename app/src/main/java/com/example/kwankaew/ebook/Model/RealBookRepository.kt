@@ -8,7 +8,7 @@ import java.net.URL
 /**
  * Created by kwankaew on 30/3/2018 AD.
  */
-class RealBookRepositoty:BookRepository() {
+class RealBookRepository:BookRepository() {
     val bookList = ArrayList<Book>()
     override fun loadAllBooks() {
         bookList.clear()

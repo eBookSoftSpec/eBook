@@ -6,6 +6,7 @@ import android.widget.ArrayAdapter
 import com.example.kwankaew.ebook.Model.Book
 import com.example.kwankaew.ebook.Model.BookRepository
 import com.example.kwankaew.ebook.Model.MockBookRepository
+import com.example.kwankaew.ebook.Model.RealBookRepository
 import com.example.kwankaew.ebook.presenter.BookPresenter
 import com.example.kwankaew.ebook.presenter.BookView
 import kotlinx.android.synthetic.main.activity_main.*
@@ -21,7 +22,8 @@ class MainActivity : AppCompatActivity() , BookView{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        repositoty = MockBookRepository()
+//        repositoty = MockBookRepository()
+        repositoty = RealBookRepository()
         present = BookPresenter(this,repositoty)
         present.start()
     }
